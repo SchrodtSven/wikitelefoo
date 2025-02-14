@@ -4,10 +4,15 @@
 #
 # AUTHOR: Sven Schrodt<sven@schrodt.club>
 # SINCE: 2025-02-12
-import requests
+import requests # type: ignore
 import urllib
 
 class WTFHttpClient:
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
     response = None
     headers = {'User-Agent': 'Wiki Tele Foo Http Client; Version 0.23.42',
                'X-POST_FUCKUP': 'Http is down().debug()'}
@@ -33,24 +38,52 @@ class WTFQueryBuilder:
     base_uri = 'https://{}.wiktionary.org/w/api.php?action={}&list=search&srsearch={}&format={}' # to be used by str.format()
     
     def __init__(self, search='Foo'):
-       self.search = search
-       self.__init_vars(action = 'query', format = self.format, language = self.language, search = 'Foo',  endpoint = self.endpoint)
+        """_summary_
+
+        Args:
+            search (str, optional): _description_. Defaults to 'Foo'.
+        """
+        self.search = search
+        self.__init_vars(action = 'query', format = self.format, language = self.language, search = 'Foo',  endpoint = self.endpoint)
     
     def build_query_generic(self, lemma: str, action: str = 'query', format: str = 'json', search: str = 'Foo',  endpoint: str = 'https://www.wikidata.org/w/api.php')->str:
+        """_summary_
+
+        Args:
+            lemma (str): _description_
+            action (str, optional): _description_. Defaults to 'query'.
+            format (str, optional): _description_. Defaults to 'json'.
+            search (str, optional): _description_. Defaults to 'Foo'.
+            endpoint (_type_, optional): _description_. Defaults to 'https://www.wikidata.org/w/api.php'.
+
+        Returns:
+            str: _description_
+        """
         self.__set_vars(action = action, search = lemma,  endpoint = 'https://www.wikidata.org/w/api.php')
         return self.endpoint + '?' + urllib.parse.urlencode(self.params)
     
-    def search_entities(self, lemma: str):  
+    def search_entities(self, lemma: str):
+        """  Building uri for action=wbsearchentities search=lemma
+
+        Args:
+            lemma (str): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return self.build_query_generic(lemma = lemma, action ='wbsearchentities')
     
     def __set_vars(self, **kwargs):
+        """_summary_
+        """
         #__set_vars(action = action, search = lemma,  endpoint = 'https://www.wikidata.org/w/api.php')
         for key in kwargs:
             if key != 'endpoint':
                 self.params[key] = kwargs[key]
     
     def __init_vars(self, **kwargs):
-       
+        """_summary_
+        """
         self.params = {
             'action': kwargs['action'],
             'format': kwargs['format'],
@@ -58,7 +91,8 @@ class WTFQueryBuilder:
             'search': kwargs['search']
         }
         self.endpoint = kwargs['endpoint']
-        # wbsearchentities
+
+# wbsearchentities
     
 # lemma = 'Universum'
 
@@ -72,3 +106,4 @@ class WTFQueryBuilder:
 # print(response)
  
 # action = 'query', format = 'json', language = 'de', search= 'Foo'
+ 
