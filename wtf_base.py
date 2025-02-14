@@ -8,20 +8,20 @@ import requests # type: ignore
 import urllib
 
 class WTFHttpClient:
-    """_summary_
+    """ managing HTTP requests and responses 
 
     Returns:
-        _type_: _description_
+        WTFH: _description_
     """
     response = None
     headers = {'User-Agent': 'Wiki Tele Foo Http Client; Version 0.23.42',
-               'X-POST_FUCKUP': 'Http is down().debug()'}
+              }
     
     def __init__(self):
         pass
     
     def get(self, uri):
-        return requests.get(uri, headers=self.headers)
+        return requests.get(uri, headers = self.headers)
         #url = 'https://de.wiktionary.org/w/api.php?action=query&list=search&srsearch=Fubar&format=json'
     
 
