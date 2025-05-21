@@ -92,18 +92,5 @@ class WTFQueryBuilder:
         }
         self.endpoint = kwargs['endpoint']
 
-# wbsearchentities
-    
-# lemma = 'Universum'
 
-#qb = WTFQueryBuilder()
-# uri = qb.build_full_query(lemma)
-#uri = qb.search_entities('Orthopädie')
-#print(uri)
-#exit()
-# client = WTFHttpClient()
-# response = client.get(uri).json()
-# print(response)
- 
-# action = 'query', format = 'json', language = 'de', search= 'Foo'
  
