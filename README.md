@@ -20,3 +20,13 @@ print(response)
  
 action = 'query', format = 'json', language = 'de', search= 'Foo'
  ```
+
+
+ ## Setting up venv, activate it and opt. upgrade pip
+ ```bash
+svenschrodt@Thanos wikitelefoo % python3 -m venv .venv
+svenschrodt@Thanos wikitelefoo % source .venv/bin/activate
+(.venv) svenschrodt@Thanos wikitelefoo % 
+(.venv) svenschrodt@Thanos wikitelefoo % pip install r- requirements.txt 
+(.venv) svenschrodt@Thanos wikitelefoo % pip install --upgrade pip
+ ```
