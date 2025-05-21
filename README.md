@@ -18,7 +18,7 @@ client = WTFHttpClient()
 response = client.get(uri).json()
 print(response)
  
-action = 'query', format = 'json', language = 'de', search= 'Foo'
+# action = 'query', format = 'json', language = 'de', search= 'Foo'
  ```
 
 
